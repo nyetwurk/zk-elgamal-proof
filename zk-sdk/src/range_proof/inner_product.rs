@@ -275,7 +275,7 @@ impl InnerProductProof {
         // 2. Compute `u_i^-1` for all `i`.
         let mut challenges_inv = challenges.clone();
         // This computes `(u_k * ... * u_1)^-1` and stores `u_i^-1` in `challenges_inv`.
-        let allinv = Scalar::batch_invert(&mut challenges_inv);
+        let allinv = Scalar::invert_batch_alloc(&mut challenges_inv);
 
         // 3. Compute `u_i^2` and `u_i^-2` for all `i`.
         for i in 0..lg_n {
@@ -468,7 +468,9 @@ impl InnerProductProof {
 #[cfg(test)]
 mod tests {
     use {
-        super::*, crate::range_proof::generators::RangeProofGens, rand::rngs::OsRng, sha3::Sha3_512,
+        super::*,
+        crate::{range_proof::generators::RangeProofGens, OsRng},
+        sha3::Sha3_512,
     };
 
     #[test]

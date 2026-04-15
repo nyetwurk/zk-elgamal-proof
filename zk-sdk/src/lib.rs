@@ -21,8 +21,11 @@
 
 pub mod encryption;
 pub mod errors;
+mod os_rng;
 #[doc(hidden)]
 mod range_proof;
+
+pub(crate) use os_rng::OsRng;
 mod sigma_proofs;
 pub mod transcript;
 pub mod zk_elgamal_proof_program;

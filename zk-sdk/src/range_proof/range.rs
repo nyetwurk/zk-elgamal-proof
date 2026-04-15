@@ -8,6 +8,7 @@ use {
             util,
         },
         transcript::TranscriptProtocol,
+        OsRng,
     },
     core::iter,
     curve25519_dalek::{
@@ -16,7 +17,6 @@ use {
         traits::{IsIdentity, MultiscalarMul, VartimeMultiscalarMul},
     },
     merlin::Transcript,
-    rand::rngs::OsRng,
     solana_zk_sdk_pod::{
         range_proof::{
             PodRangeProofU128, PodRangeProofU256, PodRangeProofU64, INNER_PRODUCT_PROOF_U128_LEN,

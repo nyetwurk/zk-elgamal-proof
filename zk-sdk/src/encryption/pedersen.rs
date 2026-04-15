@@ -1,7 +1,7 @@
 //! Pedersen commitment implementation using the Ristretto prime-order group.
 
 use {
-    crate::errors::ElGamalError,
+    crate::{errors::ElGamalError, OsRng},
     core::ops::{Add, Mul, Sub},
     curve25519_dalek::{
         constants::{RISTRETTO_BASEPOINT_COMPRESSED, RISTRETTO_BASEPOINT_POINT},
@@ -9,7 +9,6 @@ use {
         scalar::Scalar,
         traits::MultiscalarMul,
     },
-    rand::rngs::OsRng,
     serde::{Deserialize, Serialize},
     sha3::Sha3_512,
     solana_zk_sdk_pod::encryption::{

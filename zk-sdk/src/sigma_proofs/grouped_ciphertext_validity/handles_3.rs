@@ -21,6 +21,7 @@ use {
             ristretto_point_from_optional_slice,
         },
         transcript::TranscriptProtocol,
+        OsRng,
     },
     curve25519_dalek::{
         ristretto::{CompressedRistretto, RistrettoPoint},
@@ -28,7 +29,6 @@ use {
         traits::{IsIdentity, MultiscalarMul, VartimeMultiscalarMul},
     },
     merlin::Transcript,
-    rand::rngs::OsRng,
     solana_zk_sdk_pod::{sigma_proofs::PodGroupedCiphertext3HandlesValidityProof, UNIT_LEN},
     zeroize::Zeroize,
 };
